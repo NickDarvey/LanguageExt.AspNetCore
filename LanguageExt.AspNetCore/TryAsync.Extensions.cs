@@ -7,7 +7,9 @@ namespace LanguageExt
     {
         public static Task<IActionResult> ToActionResult<T>(this TryAsync<T> self) =>
             self.Match<T, IActionResult>(
-                Succ: r => new OkObjectResult(r),
+                Succ: r => r is Unit
+                    ? (IActionResult)new NoContentResult()
+                    : (IActionResult)new OkObjectResult(r),
                 Fail: ex => new InternalErrorResult(ex));
     }
 }

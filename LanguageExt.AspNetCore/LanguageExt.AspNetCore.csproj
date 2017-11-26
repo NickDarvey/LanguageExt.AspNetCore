@@ -9,12 +9,12 @@
     <Company>Nick Darvey</Company>
     <Product>LanguageExt.AspNetCore</Product>
     <Description>Extenstions for Language Extensions for easier integration with ASP.NET Core.</Description>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <PackageLicenseUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</RepositoryUrl>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Unit returns as NoContent</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

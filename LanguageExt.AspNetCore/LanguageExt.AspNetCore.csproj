@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>NickDarvey.LanguageExt.AspNetCore</AssemblyName>
+    <RootNamespace>LanguageExt</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Nick Darvey</Authors>
+    <Company>Nick Darvey</Company>
+    <Product>LanguageExt.AspNetCore</Product>
+    <Description>Extenstions for Language Extensions for easier integration with ASP.NET Core.</Description>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <PackageLicenseUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</RepositoryUrl>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="TryAsync.Extensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LanguageExt.Core" Version="2.1.28" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

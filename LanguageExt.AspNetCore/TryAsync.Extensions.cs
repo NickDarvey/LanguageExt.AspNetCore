@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace LanguageExt
@@ -10,6 +11,8 @@ namespace LanguageExt
                 Succ: r => r is Unit
                     ? (IActionResult)new NoContentResult()
                     : (IActionResult)new OkObjectResult(r),
-                Fail: ex => new InternalErrorResult(ex));
+                Fail: ex => ex is AggregateException aggregate
+                    ? new InternalErrorResult(aggregate.InnerExceptions)
+                    : new InternalErrorResult(ex));
     }
 }

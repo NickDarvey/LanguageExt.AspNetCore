@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>NickDarvey.LanguageExt.AspNetCore</AssemblyName>
     <RootNamespace>LanguageExt</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -9,21 +9,16 @@
     <Company>Nick Darvey</Company>
     <Product>LanguageExt.AspNetCore</Product>
     <Description>Extenstions for Language Extensions for easier integration with ASP.NET Core.</Description>
-    <Version>0.1.2</Version>
-    <AssemblyVersion>0.0.0.0</AssemblyVersion>
-    <PackageLicenseUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore/LICENSE</PackageLicenseUrl>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</RepositoryUrl>
-    <PackageReleaseNotes>Unit returns as NoContent</PackageReleaseNotes>
+    <PackageReleaseNotes>Targets AspNetCore 3 and LanguageExt 3.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="TryAsync.Extensions.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="LanguageExt.Core" Version="2.1.28" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="LanguageExt.Core" Version="3.3.7" />
   </ItemGroup>
 
 </Project>

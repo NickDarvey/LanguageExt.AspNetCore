@@ -3,17 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>NickDarvey.LanguageExt.AspNetCore</AssemblyName>
-    <RootNamespace>LanguageExt</RootNamespace>
+    <RootNamespace>NickDarvey.LanguageExt.AspNetCore</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Nick Darvey</Authors>
     <Company>Nick Darvey</Company>
     <Product>LanguageExt.AspNetCore</Product>
     <Description>Extenstions for Language Extensions for easier integration with ASP.NET Core.</Description>
-    <Version>1.0.0</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/NickDarvey/Brand/master/Logos/NickDarvey.Dark.512.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/NickDarvey/LanguageExt.AspNetCore</RepositoryUrl>
-    <PackageReleaseNotes>Targets AspNetCore 3 and LanguageExt 3.</PackageReleaseNotes>
+    <PackageReleaseNotes>Adds a bunch of extensions for converting to IActionResults</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -6,38 +6,60 @@
 trigger:
 - master
 
-jobs:
-- job: Build
-  pool:
-    vmImage: 'ubuntu-latest'
+stages:
+  - stage: Build
+    jobs:
+    - job: Build
+      pool:
+        vmImage: 'ubuntu-latest'
 
-  variables:
-    BuildConfiguration: Release
-    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+      variables:
+        BuildConfiguration: Release
+        DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 
-  steps:
-  - task: UseDotNet@2
-    inputs:
-      version: '3.0.100-preview8-013656'
-      includePreviewVersions: true
-      performMultiLevelLookup: true
-    displayName: Install dotnet
+      steps:
+      - task: UseDotNet@2
+        inputs:
+          version: '3.0.100-preview8-013656'
+          includePreviewVersions: true
+          performMultiLevelLookup: true
+        displayName: Install dotnet
 
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: build
-      arguments: '--configuration $(BuildConfiguration)'
-    displayName: Build
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: build
+          arguments: '--configuration $(BuildConfiguration)'
+        displayName: Build
 
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: pack
-      arguments: '--configuration $(BuildConfiguration) -o $(Build.ArtifactStagingDirectory)'
-      nobuild: true
-    displayName: Package
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: pack
+          arguments: '--configuration $(BuildConfiguration) -o $(Build.ArtifactStagingDirectory)'
+          nobuild: true
+        displayName: Package
 
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: '$(Build.ArtifactStagingDirectory)'
-      artifact: 'Package'
-    displayName: Publish
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+          artifact: 'Package'
+        displayName: Publish
+
+  - stage: Release
+    jobs:
+    - job: Release
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          buildType: 'current'
+          artifactName: 'Package'
+          targetPath: '$(Pipeline.Workspace)'
+
+      - task: NuGetCommand@2
+        inputs:
+          command: 'push'
+          packagesToPush: '$(Pipeline.Workspace)/*.nupkg'
+          nuGetFeedType: 'external'
+          publishFeedCredentials: 'NuGet'

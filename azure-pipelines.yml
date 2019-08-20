@@ -25,8 +25,15 @@ jobs:
 
   - task: DotNetCoreCLI@2
     inputs:
+      command: build
+      arguments: '--configuration $(BuildConfiguration)'
+    displayName: Build
+
+  - task: DotNetCoreCLI@2
+    inputs:
       command: pack
-      arguments: '--configuration $(buildConfiguration)'
+      arguments: '--configuration $(BuildConfiguration)'
+      nobuild: true
     displayName: Package
 
   - task: PublishPipelineArtifact@1

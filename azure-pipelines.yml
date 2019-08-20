@@ -38,6 +38,6 @@ jobs:
 
   - task: PublishPipelineArtifact@1
     inputs:
-      path: $(System.DefaultWorkingDirectory)/**/*.nupkg
+      path: $(Build.ArtifactStagingDirectory)/*.nupkg
       artifact: Package
     displayName: Publish

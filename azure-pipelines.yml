@@ -32,7 +32,7 @@ jobs:
   - task: DotNetCoreCLI@2
     inputs:
       command: pack
-      arguments: '--configuration $(BuildConfiguration)'
+      arguments: '--configuration $(BuildConfiguration) -o $(Build.ArtifactStagingDirectory)'
       nobuild: true
     displayName: Package
 
